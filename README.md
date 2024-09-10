@@ -30,3 +30,8 @@ then redirect to `localhost:3000`
 But by creating a mixin, it more scalable when mixin allow us to share this functionality across classes / modules
 
 - Hence I just want ONE and ONLY ONE `TodoList` for the entire app - it's a great candidate for SingleTon Pattern
+
+- To avoid hard-writing a request from its invoker. Need to creat an object that is used to encapsulate all information needed to perform an action or trigger an event at a later time
+
+For the context of the todo-master application, 2 actions used the most is ADD, DELETE.
+To manage the actions - we can implement `Command Patterns`

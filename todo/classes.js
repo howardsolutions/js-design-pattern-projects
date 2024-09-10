@@ -1,6 +1,6 @@
 import {observerMixin} from "./mixin.js"
 
-class TodoItem {
+export class TodoItem {
     constructor(text) {
         this.text = text;
     };
@@ -10,7 +10,7 @@ class TodoItem {
     }
 }
 
-class TodoList {
+export class TodoList {
     #data = new Set();
 
     get items() {
