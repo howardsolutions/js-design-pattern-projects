@@ -28,3 +28,5 @@ then redirect to `localhost:3000`
 - Create a MIXIN that will implement Observer Pattern. We can directly inject the Observer pattern in the `todo list` to observe each time the list changes. 
 
 But by creating a mixin, it more scalable when mixin allow us to share this functionality across classes / modules
+
+- Hence I just want ONE and ONLY ONE `TodoList` for the entire app - it's a great candidate for SingleTon Pattern
