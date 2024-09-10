@@ -1,6 +1,6 @@
 import { TodoList, TodoItem } from './classes.js';
 
-class Command {
+export class Command {
     name;
     args; // an Array
 
@@ -11,12 +11,12 @@ class Command {
 };
 
 // Enum
-const Commands = {
+export const Commands = {
     ADD: 'add',
     DELETE: 'delete',
 }
 
-const CommandExecutor = {
+export const CommandExecutor = {
     execute(command) {
         const todoList = TodoList.getInstance();
 
@@ -27,7 +27,7 @@ const CommandExecutor = {
 
             if (todoText !== '' && !itemInList) {
                 todoInput.value = '';
-                todoInput.add(new TodoItem(todoText));
+                todoList.add(new TodoItem(todoText));
             }
 
         } else if (command.name === Commands.DELETE) {
