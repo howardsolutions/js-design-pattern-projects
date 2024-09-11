@@ -54,6 +54,15 @@ body>header {
     view-transition-name: main-header;
 }
 
+::view-transition-old(main-header), ::view-transition-new(main-header) {
+  animation-duration: 0.1s;
+}
+
+details-page::part(image) {
+  width: 120%;
+  margin-left: -10%;
+}
+
 body>main {
     margin: auto;
     margin-top: 60px;
