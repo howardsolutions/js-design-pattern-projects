@@ -5,7 +5,7 @@ const Router = {
                 event.preventDefault();
                 const href = event.target.getAttribute("href");
                 Router.go(href);
-            });
+        });
         });  
         // It listen for history changes
         window.addEventListener('popstate',  event => {
@@ -14,6 +14,10 @@ const Router = {
         // Process initial URL   
         Router.go(location.pathname);
     },    
+    setMetadata: (title, color) => {
+        document.title = `${title} - Coffee Masters`;
+        document.querySelector("meta[name='theme-color']").content = color;
+    },
     go: async (route, addToHistory=true) => {
         if (addToHistory) {
             history.pushState({ route }, '', route);
@@ -22,14 +26,18 @@ const Router = {
         switch (route) {
             case "/":
                 pageElement = document.createElement("menu-page");
+                Router.setMetadata("Menu", "#43281C");
                 break;
             case "/order":
                 // Lazy loading pattern
                 await import('../components/OrderPage.js');
                 pageElement = document.createElement("order-page");
+                Router.setMetadata("Order", "green");
                 break;
             default:
                 if (route.startsWith("/product-")) {                
+                     Router.setMetadata("Detail", "blue");
+
                     pageElement = document.createElement("details-page");
                     pageElement.dataset.productId = route.substring(route.lastIndexOf("-")+1);
                 }
@@ -53,10 +61,6 @@ const Router = {
         }
 
         window.scrollX = 0;
-    },
-    setMetadata: (title, color) => {
-        document.title = `${title} - Coffee Masters`;
-        document.querySelector("meta[name='theme-color']").content = color;
     },
 }
 
