@@ -21,6 +21,15 @@ export default class CartItem extends HTMLElement {
             removeFromCart(item.product.id);
         })
       }
+};
+
+function interpolate(str, params) {
+    let names = Object.keys(params);
+    let values = Object.values(params);
+
+    const body = `return \`${str}\`;`;
+
+    return new Function(...names, body)(...values);
 }
 
 customElements.define("cart-item", CartItem);
