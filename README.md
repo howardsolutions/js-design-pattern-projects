@@ -35,3 +35,14 @@ But by creating a mixin, it more scalable when mixin allow us to share this func
 
 For the context of the todo-master application, 2 actions used the most is ADD, DELETE.
 To manage the actions - we can implement `Command Patterns`
+
+
+## 2) COFFEE Masters App
+
+### Problems Raising, and Solution by applying SPA patterns
+
+- When the application loads, ALL the pages are being loaded. In details, when the page loads, the ECMAScript creates a tree of modules, then loading every JS modules.
+
+This loading process taking network, time in parsing, compiling, execution.
+
+We CAN IMPROVE performance, by `LAZY LOAD`.
