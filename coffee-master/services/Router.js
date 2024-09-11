@@ -53,7 +53,11 @@ const Router = {
         }
 
         window.scrollX = 0;
-    }
+    },
+    setMetadata: (title, color) => {
+        document.title = `${title} - Coffee Masters`;
+        document.querySelector("meta[name='theme-color']").content = color;
+    },
 }
 
 export default Router;
